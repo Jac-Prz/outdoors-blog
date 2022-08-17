@@ -1,15 +1,19 @@
 import { useRef, useState, useEffect, useContext } from "react";
+import {useNavigate} from 'react-router-dom';
+import AuthContext from "../context/AuthProvider";
 
 const Login = () => {
-    // const {setAuth} = useContext(AuthContext);
-
+    // context
+    const { auth, setAuth } = useContext(AuthContext);
+    //reff
     const userRef = useRef();
     const errRef = useRef();
-
+    //state
     const [user, setUser] = useState('');
     const [pwd, setPwd] = useState('');
-    const [errMsg, setErrMsg] = useState('');
-    const [success, setSuccess] = useState(false);
+    const [errMsg, setErrMsg] = useState(null);
+    // navigation
+    const navigate = useNavigate()
 
 
     useEffect(() => {
@@ -23,14 +27,28 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(user, pwd)
-        setUser('');
-        setPwd('');
-        setSuccess(true);
+        const checkCredentials = await fetch('/login', {
+            "method": 'POST', 
+            "body": JSON.stringify({username: user, password: pwd}), 
+            "headers": {"Content-Type": "application/json"}
+        })
+        const json = await checkCredentials.json()
+        if (json.authenticated){
+            setAuth(json.authenticated);
+            setUser('');
+            setPwd('');
+            navigate('/');
+        } else {
+            setUser('');
+            setPwd('');
+            setErrMsg("auth failed")
+        }
+               
     }
 
     return (
         <div className="login-form">
-          <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
+            <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
             <h1>Sign In</h1>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="username">Username</label>

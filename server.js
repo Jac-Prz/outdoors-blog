@@ -3,10 +3,12 @@ const express = require('express');
 
 const dbConnect = require('./database/dbConnect');
 const blogRouter = require('./router/blogRoutes');
+const user = require('./router/user')
 const app = express();
 
 app.use(express.json());
 app.use('/blogs', blogRouter);
+app.use('/login', user);
 
 
 dbConnect.mongoDbConnect();

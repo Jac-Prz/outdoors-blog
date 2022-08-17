@@ -1,14 +1,20 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import AuthContext, { AuthProvider } from "../context/AuthProvider";
 
 const Footer = () => {
+    const { auth } = useContext(AuthContext);
+
     return (
-<footer>
-    <Link className="link" to="/admin">ADD POSTS</Link>
-    <Link className="link" to="/login">LOGIN</Link>
-</footer>
+        <footer>
+            {
+                auth ?
+                    <Link className="link" to="/admin">ADD POSTS</Link> :
+                    <Link className="link" to="/login">LOGIN</Link>
+            }
+
+        </footer>
     )
 }
 
 export default Footer;
-
-// if logged in show add posts, if not show login
