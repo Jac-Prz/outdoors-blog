@@ -102,10 +102,10 @@ const AdminForm = (props) => {
     }
 
     return (
-        <form onSubmit={submitForm}>
+        <form className="admin" onSubmit={submitForm}>
+            <h2>Add A Post</h2>
             <label>Title</label>
             <Input name="title" onChange={enterData} formData={formData} />
-
             <div className="date-type">
                 <div>
                     <label>Date</label>
@@ -127,8 +127,8 @@ const AdminForm = (props) => {
             <button id="upload_widget" className="img-btn input" onClick={handleOpenWidget}>Upload Images</button>
             <div className="img-preview">
                 {formData.img.map((image) => (
-                                     <img src={image.url} />
-                             ))}
+                    <img src={image.url} />
+                ))}
             </div>
 
             <button className="input" type="submit">Submit</button>

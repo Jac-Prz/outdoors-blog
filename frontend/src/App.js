@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Header from "./components/Header";
@@ -10,10 +10,12 @@ import Bike from './pages/Bike';
 import Other from './pages/Other';
 import Admin from './pages/Admin';
 import Login from './pages/Login';
+import AuthContext from './context/AuthProvider';
 
 
 
 function App() {
+  const {auth} = useContext(AuthContext);
   const [blogEntries, setBlogEntries] = useState(null);
 
   useEffect(() => {
@@ -56,7 +58,7 @@ function App() {
           />
           <Route
             path="/admin"
-            element={<Admin fetchPosts={fetchBlogPosts}/>}
+            element={auth ? <Admin fetchPosts={fetchBlogPosts}/>  : null }
           />
           <Route
             path="/login"

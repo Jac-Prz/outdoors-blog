@@ -8,7 +8,7 @@ const BlogItem = (props) => {
         >
             <div >
                 <h1>{props.display && props.display.title}</h1>
-                <p>{props.display && props.display.date}</p>
+                <h4>{props.display && props.display.date}</h4>
                 <p>{props.display && props.display.body}</p>
             </div>
 

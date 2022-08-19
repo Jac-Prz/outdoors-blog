@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect, useContext } from "react";
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import AuthContext from "../context/AuthProvider";
 
 const Login = () => {
@@ -28,12 +28,12 @@ const Login = () => {
         e.preventDefault();
         console.log(user, pwd)
         const checkCredentials = await fetch('/login', {
-            "method": 'POST', 
-            "body": JSON.stringify({username: user, password: pwd}), 
-            "headers": {"Content-Type": "application/json"}
+            "method": 'POST',
+            "body": JSON.stringify({ username: user, password: pwd }),
+            "headers": { "Content-Type": "application/json" }
         })
         const json = await checkCredentials.json()
-        if (json.authenticated){
+        if (json.authenticated) {
             setAuth(json.authenticated);
             setUser('');
             setPwd('');
@@ -43,37 +43,40 @@ const Login = () => {
             setPwd('');
             setErrMsg("auth failed")
         }
-               
+
     }
 
     return (
         <div className="login-form">
-            <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
-            <h1>Sign In</h1>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="username">Username</label>
-                <input
-                    type="text"
-                    id="username"
-                    ref={userRef}
-                    autoComplete="off"
-                    onChange={(e) => setUser(e.target.value)}
-                    value={user}
-                    required
-                />
 
-                <label htmlFor="password">Password</label>
-                <input
-                    type="password"
-                    id="password"
-                    autoComplete="off"
-                    onChange={(e) => setPwd(e.target.value)}
-                    value={pwd}
-                    required
-                />
-                <button>Sign In</button>
-            </form>
+            <div className="form-section">
+                <img className="form-img login-img" src="https://res.cloudinary.com/dsdekztdq/image/upload/v1660931519/blog-website/PXL_20210130_121404879_er3jfs.jpg" alt="img" />
+                <form className="login" onSubmit={handleSubmit}>
+                    <p ref={errRef} className={errMsg ? "errmsg" : "hidden"} aria-live="assertive">{errMsg}</p>
+                    <h2>Sign In</h2>
+                    <label htmlFor="username">Username</label>
+                    <input
+                        type="text"
+                        id="username"
+                        ref={userRef}
+                        autoComplete="off"
+                        onChange={(e) => setUser(e.target.value)}
+                        value={user}
+                        required
+                    />
 
+                    <label htmlFor="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        autoComplete="off"
+                        onChange={(e) => setPwd(e.target.value)}
+                        value={pwd}
+                        required
+                    />
+                    <button>Sign In</button>
+                </form>
+            </div>
         </div>
     );
 }
