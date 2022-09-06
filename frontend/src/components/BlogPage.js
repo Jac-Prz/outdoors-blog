@@ -2,33 +2,31 @@ import { useState } from 'react'
 import BlogPreview from "../components/BlogPreview";
 import BlogItem from "../components/BlogItem";
 
-
 const BlogPage = (props) => {
-    const [shown, setShown] = useState(null);
-
+    const [showing, setShowing] = useState(null);
     const displayBlog = (e) => {
-        setShown(e)
+        setShowing(e)
         window.scrollTo({ top: 0, left: 0, behaviour: 'smooth' });
     }
     const hideBlog = () => {
-        setShown(null);
+        setShowing(null);
     }
 
-
     return (
-        <div className="section">
+        <section id={props.page}>
+        <h2>{props.page.toUpperCase()} BLOG POSTS</h2>
             <div>
-                <BlogItem display={shown} onClick={hideBlog} />
+                <BlogItem display={showing} onClick={hideBlog} />
             </div>
-            <div className="blog-previews">
-                {props.entries && props.entries.map(entry => {
+            <div className="blog-preview-container">
+                {props.entries && props.entries.map((entry, index) => {
                     return (
-                        <BlogPreview entry={entry} onClick={() => { displayBlog(entry) }} />
+                        <BlogPreview key={index} entry={entry} onClick={() => { displayBlog(entry) }} />
                     )
                 })
                 }
             </div>
-        </div>
+            </section>
     )
 }
 

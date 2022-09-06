@@ -7,13 +7,13 @@ const BlogItem = (props) => {
             onClick={props.onClick}
         >
             <div >
-                <h1>{props.display && props.display.title}</h1>
+                <h3>{props.display && props.display.title}</h3>
                 <h4>{props.display && props.display.date}</h4>
                 <p>{props.display && props.display.body}</p>
             </div>
 
-            {props.display && props.display.img.map((image) => {
-                return <div><img src={image.url} alt="img" /></div>
+            {props.display && props.display.img.map((image, index) => {
+                return <div key={index}><img src={image.url} alt="img" /></div>
             }
             )}
         </div>

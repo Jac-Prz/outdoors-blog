@@ -1,6 +1,6 @@
 const Home = () => {
     return (
-        <img className="home-img" src="https://res.cloudinary.com/dsdekztdq/image/upload/v1660299385/PXL_20210903_125747062_rnzccs.jpg"/>
+        <img className="home-img" src="https://res.cloudinary.com/dsdekztdq/image/upload/v1662463685/sweden_crcgip.jpg"/>
     )
 }
 
