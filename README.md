@@ -1,4 +1,4 @@
-Blog website built on MERN stack
+Blog website built on MERN stack hosted on heroku https://grandma-goes-out.herokuapp.com/
 
 - displays blog posts
 - simple login for single admin credentials
