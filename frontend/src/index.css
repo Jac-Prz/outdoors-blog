@@ -27,20 +27,20 @@ h1 {
   font-size: clamp(2.5rem, 5vw + 1rem, 4rem);
   letter-spacing: .5rem;
   font-weight: 600;
-  padding:0 10px;
+  padding: 0 10px;
   margin: 50px 0 50px;
 }
 
-h2{
+h2 {
   color: var(--alt-color-2);
   font-weight: 900;
   letter-spacing: .3rem;
-  padding:5px;
+  padding: 5px;
   border-top: #087E8B solid 1px;
   border-bottom: #087E8B solid 1px;
 }
 
-h3{
+h3 {
   font-size: 1.5rem;
 }
 
@@ -76,16 +76,16 @@ nav {
   flex-wrap: wrap;
   max-width: 320px;
   margin: 22px auto;
-  padding:0 10%;
+  padding: 0 10%;
 }
 
 /* HOME*/
 .home-img {
   width: 100%;
   min-height: 50vh;
-  max-height:430px;
-  max-width:900px;
-  object-fit:cover;
+  max-height: 430px;
+  max-width: 900px;
+  object-fit: cover;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, .5)
 }
@@ -136,7 +136,7 @@ nav {
   margin: 0 5%;
 }
 
-@media (min-width:500px){
+@media (min-width:500px) {
   .blog-preview-container {
     grid-template-columns: 1fr 1fr;
   }
@@ -150,11 +150,12 @@ nav {
   margin-top: 30px;
 }
 
-.admin-img{
+.admin-img {
   height: 575px;
   border-radius: 10px 0 0 10px;
 }
-.login-img{
+
+.login-img {
   height: 400px;
   border-radius: 10px 0 0 10px;
 }
@@ -166,30 +167,37 @@ form {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-   color: var(--alt-color-2)
-   
+  color: var(--alt-color-2)
 }
-.login{
+
+.login {
   border-radius: 0 20px 20px 0;
-  padding:20px 50px 50px;
+  padding: 20px 50px 50px;
 }
-.admin{
+
+.admin {
   height: 515px;
   padding: 30px 40px;
   width: 350px;
   border-radius: 0 20px 20px 0;
 }
-form h2{
+
+form h2 {
   color: #210124;
   font-weight: 500;
 }
 
-form input, textarea, select, button{
+form input,
+textarea,
+select,
+button {
   border: solid 1px #087E8B;
   border-radius: 5px;
   margin: 10px;
 }
-form input, select{
+
+form input,
+select {
   height: 30px;
 }
 
@@ -209,12 +217,12 @@ form textarea {
 }
 
 form button {
-background-color: white;
-color: var(--alt-color-2);
-font-size: inherit;
-font-family: inherit;
-font-weight: 600;
-padding:5px 10px;
+  background-color: white;
+  color: var(--alt-color-2);
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: 600;
+  padding: 5px 10px;
 }
 
 
@@ -222,7 +230,7 @@ padding:5px 10px;
   display: flex;
   flex-direction: row;
   justify-content: center;
- }
+}
 
 .img-preview img {
   height: 70px;
@@ -230,9 +238,10 @@ padding:5px 10px;
 }
 
 /* FOOTER */
-footer{
+footer {
   padding: 15px 0;
 }
+
 footer .link {
   font-size: 1rem;
 }

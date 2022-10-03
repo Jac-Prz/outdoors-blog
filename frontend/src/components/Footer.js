@@ -7,14 +7,12 @@ const Footer = () => {
 
     return (
         <footer>
-        <p>
-            {
-                auth ?
-                    <Link className="link" to="/admin">ADD POSTS</Link> :
-                    <Link className="link" to="/login">LOGIN</Link>
-            }
+            <p>
+                {
+                    auth ? <Link className="link" to="/admin">ADD POSTS</Link> : <Link className="link" to="/login">LOGIN</Link>
+                }
             </p>
-          </footer>
+        </footer>
     )
 }
 

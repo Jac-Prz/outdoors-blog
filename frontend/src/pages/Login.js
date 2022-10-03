@@ -15,7 +15,6 @@ const Login = () => {
     // navigation
     const navigate = useNavigate()
 
-
     useEffect(() => {
         userRef.current.focus();
     }, [])
@@ -43,12 +42,10 @@ const Login = () => {
             setPwd('');
             setErrMsg("auth failed")
         }
-
     }
 
     return (
         <div className="login-form">
-
             <div className="form-section">
                 <img className="form-img login-img" src="https://res.cloudinary.com/dsdekztdq/image/upload/v1660931519/blog-website/PXL_20210130_121404879_er3jfs.jpg" alt="img" />
                 <form className="login" onSubmit={handleSubmit}>
@@ -64,7 +61,6 @@ const Login = () => {
                         value={user}
                         required
                     />
-
                     <label htmlFor="password">Password</label>
                     <input
                         type="password"

@@ -5,4 +5,5 @@ const Other = (props) => {
         <BlogPage page="alt" entries={props.entries} />
     )
 }
+
 export default Other;

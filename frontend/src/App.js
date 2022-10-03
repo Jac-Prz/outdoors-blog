@@ -12,7 +12,8 @@ import Login from './pages/Login';
 import AuthContext from './context/AuthProvider';
 
 function App() {
-  const {auth} = useContext(AuthContext);
+
+  const { auth } = useContext(AuthContext);
   const [blogEntries, setBlogEntries] = useState(null);
 
   useEffect(() => {
@@ -54,7 +55,7 @@ function App() {
           />
           <Route
             path="/admin"
-            element={auth ? <Admin fetchPosts={fetchBlogPosts}/>  : null }
+            element={auth ? <Admin fetchPosts={fetchBlogPosts} /> : null}
           />
           <Route
             path="/login"
@@ -63,9 +64,6 @@ function App() {
         </Routes>
         <Footer />
       </BrowserRouter>
-
-
-
     </div>
   );
 }

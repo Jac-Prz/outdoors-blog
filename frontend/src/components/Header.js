@@ -11,7 +11,7 @@ const Header = () => {
                 <Link className="link" to="/">HOME</Link>
             </nav>
         </header>
-
     )
 }
+
 export default Header;

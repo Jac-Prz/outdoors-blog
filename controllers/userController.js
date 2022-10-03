@@ -10,21 +10,20 @@ const initPassword = process.env.ADMIN_PASSWORD;
 
 const loginUser = async (req, res) => {
     const { username, password } = req.body;
-    const dbData = await userModel.find({username: username})
+    const dbData = await userModel.find({ username: username })
     const dbPassword = await dbData[0].password;
-    console.log(dbPassword)
-    
     const match = await bcrypt.compare(password, dbPassword);
-    if(match){
-        res.json({authenticated: true});
+    if (match) {
+        res.json({ authenticated: true });
     } else if (!match) {
-        res.send({authenticated: false})
+        res.send({ authenticated: false })
     }
-
-        
 }
 
-// register a user
+module.exports = loginUser;
+
+
+// register a user 
 // bcrypt.hash(initPassword, saltRounds, (err, hash) => {
 //     try {
 //         const document = { username: initUsername, password: hash }
@@ -33,6 +32,3 @@ const loginUser = async (req, res) => {
 //         if (err) { console.log(err) }
 //     }
 // })
-
-
-module.exports = loginUser;

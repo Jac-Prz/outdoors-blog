@@ -14,7 +14,7 @@ const BlogPage = (props) => {
 
     return (
         <section id={props.page}>
-        <h2>{props.page.toUpperCase()} BLOG POSTS</h2>
+            <h2>{props.page.toUpperCase()} BLOG POSTS</h2>
             <div>
                 <BlogItem display={showing} onClick={hideBlog} />
             </div>
@@ -26,7 +26,7 @@ const BlogPage = (props) => {
                 })
                 }
             </div>
-            </section>
+        </section>
     )
 }
 

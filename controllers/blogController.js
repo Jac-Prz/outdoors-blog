@@ -1,6 +1,6 @@
 const blogModel = require('../database/blogModel');
 
-exports.blog_get = async (req, res) => {
+exports.getAllBlogs = async (req, res) => {
     try {
         posts = await blogModel.find({}).sort({date: -1});
         res.status(200).json(posts);
@@ -9,7 +9,7 @@ exports.blog_get = async (req, res) => {
     }
 };
 
-exports.blog_get_one = async (req, res) => {
+exports.getBlog = async (req, res) => {
     try {
         const id = req.params.id;
         const post = await blogModel.find({ _id: id });
@@ -19,7 +19,7 @@ exports.blog_get_one = async (req, res) => {
     }
 };
 
-exports.blog_post = async (req, res) => {
+exports.postBlog = async (req, res) => {
     try {
         const content = req.body
         console.log(content)
@@ -30,7 +30,7 @@ exports.blog_post = async (req, res) => {
     }
 };
 
-exports.blog_update = async (req, res) => {
+exports.updateBlog = async (req, res) => {
     try {
         const { id } = req.params;
         const update = req.body;
@@ -41,7 +41,7 @@ exports.blog_update = async (req, res) => {
     }
 };
 
-exports.blog_delete = async (req, res) => {
+exports.deleteBlog = async (req, res) => {
     try {
         const { id } = req.params;
         const post = await blogModel.findByIdAndDelete(id);

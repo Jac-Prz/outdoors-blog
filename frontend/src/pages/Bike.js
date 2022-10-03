@@ -5,4 +5,5 @@ const Bike = (props) => {
         <BlogPage page="bike" entries={props.entries} />
     )
 }
+
 export default Bike;

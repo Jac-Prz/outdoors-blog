@@ -7,4 +7,5 @@ const BlogPreview = (props) => {
         </div>
     )
 }
+
 export default BlogPreview;

@@ -123,16 +123,13 @@ const AdminForm = (props) => {
             </div>
             <label>Body</label>
             <textarea onChange={enterData} name="body" className="input" value={formData.body}></textarea>
-
             <button id="upload_widget" className="img-btn input" onClick={handleOpenWidget}>Upload Images</button>
             <div className="img-preview">
                 {formData.img.map((image) => (
                     <img src={image.url} />
                 ))}
             </div>
-
             <button className="input" type="submit">Submit</button>
-
         </form>
     )
 }
